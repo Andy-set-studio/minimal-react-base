@@ -1,5 +1,8 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@import url('./reset.css');
+
+body {
+  padding: 2rem;
+  background: #efefef;
+  color: #252525;
+  font-family: sans-serif;
 }
