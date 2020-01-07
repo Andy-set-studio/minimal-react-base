@@ -7,7 +7,7 @@
     "prelaunch": "rm -r -f dist && mkdir -p dist/css",
     "static": "node static-assets.js",
     "start": "npm run prelaunch && concurrently 'webpack --watch' 'watch \"npm run static\" src --ignoreDirectoryPattern /src/js/' 'npx serve ./dist'",
-    "build": "NODE_ENV=production webpack"
+    "build": "npm run prelaunch && NODE_ENV=production concurrently 'webpack' 'npm run static'"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,8 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "preact": "^10.1.1",
+    "preact-compat": "^3.19.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
