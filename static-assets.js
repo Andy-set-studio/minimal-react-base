@@ -1,6 +1,8 @@
-var fs = require('fs');
-var postcss = require('postcss');
-var atImport = require('postcss-import');
+const fs = require('fs');
+const postcss = require('postcss');
+const atImport = require('postcss-import');
+const cssnano = require('cssnano');
+const isProduction = process.env.NODE_ENV === 'production';
 
 const paths = {
   css: {
@@ -13,12 +15,13 @@ const paths = {
   }
 };
 
-const process = async () => {
+const runner = async () => {
   const cssSrc = fs.readFileSync(paths.css.in, 'utf8');
   const htmlSrc = fs.readFileSync(paths.html.in, 'utf8');
 
   const {css} = await postcss()
     .use(atImport())
+    .use(cssnano({sourcemap: !isProduction}))
     .process(cssSrc, {
       from: paths.css.in
     });
@@ -29,4 +32,5 @@ const process = async () => {
   return true;
 };
 
-process();
+runner();
+module.exports = runner;
