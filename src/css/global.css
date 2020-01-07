@@ -6,3 +6,7 @@ body {
   color: #252525;
   font-family: sans-serif;
 }
+
+a:not([class]) {
+  color: currentColor;
+}
