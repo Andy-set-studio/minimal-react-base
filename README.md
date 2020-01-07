@@ -4,11 +4,13 @@ This is a little starting point for if you want to sling some React on a HTML pa
 
 The secret though—**[lowers voice]**—is that it actually spits out Preact code instead. Because of that, by default, it’s a ~19kb vs ~131kb (non-gzipped) build.
 
+[See a live demo](https://minimal-react-base.netlify.com/)
+
 ## Features
 
 - Webpack setup for bundling your JavaScript
 - Static processor which looks after your HTML and CSS
-- PostCSS with `@import` support
+- PostCSS with `@import` support and a [modern CSS reset](https://github.com/hankchizljaw/modern-css-reset)
 
 ## Getting started 
 
